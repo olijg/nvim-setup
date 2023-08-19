@@ -30,14 +30,6 @@ return require('packer').startup(function()
 	-- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-    -- Colour Scheme
---    use({
---	    'rose-pine/neovim',
---	    as = 'rose-pine',
---	    config = function()
---		    vim.cmd('colorscheme rose-pine')
---	    end
-  --  })
 	use { "ellisonleao/gruvbox.nvim" }
 	   use {
         'nvim-treesitter/nvim-treesitter',
