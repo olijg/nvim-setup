@@ -4,17 +4,24 @@ return require('packer').startup(function()
     
     use 'wbthomason/packer.nvim'
 	
-    use 'williamboman/mason.nvim'    
-    use 'williamboman/mason-lspconfig.nvim'
 
-    use 'neovim/nvim-lspconfig'
     use 'simrat39/rust-tools.nvim'
 
-        -- Completion framework:
-    use 'hrsh7th/nvim-cmp' 
+use {
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v2.x',
+  requires = {
+    -- LSP Support
+    {'neovim/nvim-lspconfig'},             -- Required
+    {'williamboman/mason.nvim'},           -- Optional
+    {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-    -- LSP completion source:
-    use 'hrsh7th/cmp-nvim-lsp'
+    -- Autocompletion
+    {'hrsh7th/nvim-cmp'},     -- Required
+    {'hrsh7th/cmp-nvim-lsp'}, -- Required
+    {'L3MON4D3/LuaSnip'},     -- Required
+  }
+}
 
     -- Useful completion sources:
     use 'hrsh7th/cmp-nvim-lua'
