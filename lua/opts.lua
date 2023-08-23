@@ -1,4 +1,3 @@
-	
 
 --Set completeopt to have a better completion experience
 -- :help completeopt
