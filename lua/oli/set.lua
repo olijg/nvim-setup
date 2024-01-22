@@ -16,7 +16,7 @@ vim.opt.backup = false
 -- Configure undodir depending on OS
 if os.getenv("HOME") then
     vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-else 
+else
     vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
 end
 
@@ -31,4 +31,4 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "0"
