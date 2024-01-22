@@ -6,4 +6,5 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
-vim.keymap.set("n", "<leader>py", ":!python %<CR>")
+vim.keymap.set("n", "<leader>n", ":NERDTreeFocus<CR>")
+vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<CR>")

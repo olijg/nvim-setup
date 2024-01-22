@@ -60,11 +60,18 @@ return require('packer').startup(function()
     }
     use('nvim-treesitter/playground')
     use('windwp/nvim-ts-autotag')
+    --- Harpoon for fast file search
     use('theprimeagen/harpoon')
+    --- Undo tree because everyone makes mistakes
     use('mbbill/undotree')
+    --- Git integration
     use('tpope/vim-fugitive')
+    --- Surround text objects
     use('machakann/vim-sandwich')
+    --- AI Copilot
     use('github/copilot.vim')
+    --- Filesystem tree
+    use('preservim/nerdtree')
 
     if packer_bootstrap then
         require('packer').sync()
