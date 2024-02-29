@@ -35,3 +35,6 @@ vim.opt.colorcolumn = "0"
 
 -- System clipboard
 vim.opt.clipboard:append('unnamedplus')
+
+-- Folding
+vim.opt.foldmethod = "indent"
