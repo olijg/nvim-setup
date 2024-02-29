@@ -54,6 +54,7 @@ return require('packer').startup(function()
     }
     use { "ellisonleao/gruvbox.nvim" }
     use { "sainnhe/sonokai" }
+    use { "tomasr/molokai" }
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
