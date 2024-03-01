@@ -11,5 +11,9 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>n", ":NERDTreeFocus<CR>")
 vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<CR>")
 
+--- Add lines below or above
+vim.keymap.set("n", "[<leader>", "O<Esc>j")
+vim.keymap.set("n", "]<leader>", "o<Esc>k")
+
 --- Work shortcuts
 vim.keymap.set("n", "<leader>si", ":belowright split<CR> :term shellfoundry install <CR><C-\\><C-n>")
