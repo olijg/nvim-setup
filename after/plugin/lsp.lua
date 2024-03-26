@@ -5,7 +5,7 @@ lsp.on_attach(function(client, bufnr)
     -- to learn the available actions
     lsp.default_keymaps({ buffer = bufnr })
     -- Auto format on save
-    lsp.buffer_autoformat()
+    -- lsp.buffer_autoformat()
 end)
 
 lsp.ensure_installed({
