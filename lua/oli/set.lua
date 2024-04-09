@@ -38,3 +38,6 @@ vim.opt.clipboard:append('unnamedplus')
 
 -- Folding
 vim.opt.foldmethod = "indent"
+
+-- Highlight Colours
+vim.cmd("highlight Visual ctermbg=white guibg=#0000ff")
