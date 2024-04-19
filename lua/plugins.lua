@@ -8,6 +8,7 @@ local ensure_packer = function()
     end
     return false
 end
+
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function()
@@ -52,14 +53,17 @@ return require('packer').startup(function()
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    -- Color schemes
     use { "ellisonleao/gruvbox.nvim" }
     use { "sainnhe/sonokai" }
     use { "tomasr/molokai" }
+
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-    use('nvim-treesitter/playground')
+
     use('windwp/nvim-ts-autotag')
     --- Harpoon for fast file search
     use('theprimeagen/harpoon')
@@ -67,13 +71,17 @@ return require('packer').startup(function()
     use('mbbill/undotree')
     --- Git integration
     use('tpope/vim-fugitive')
+
     --- Vim Abolish
     --- Replaces words with similar words, easily (use S instead of s during substitution)
     use('tpope/vim-abolish')
     --- Surround text objects
     use('machakann/vim-sandwich')
+
     --- AI Copilot
     use('github/copilot.vim')
+    use('CopilotC-Nvim/CopilotChat.nvim')
+
     --- Filesystem tree
     use('preservim/nerdtree')
 
