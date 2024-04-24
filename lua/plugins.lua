@@ -48,10 +48,10 @@ return require('packer').startup(function()
     use 'hrsh7th/vim-vsnip'
 
     -- Fuzzy Finder
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.2',
-        -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+    use  { "ibhagwan/fzf-lua",
+        requires = {
+            "nvim-tree/nvim-web-devicons"
+        }
     }
 
     -- Color schemes
@@ -80,7 +80,9 @@ return require('packer').startup(function()
 
     --- AI Copilot
     use('github/copilot.vim')
-    use('CopilotC-Nvim/CopilotChat.nvim')
+    use{'CopilotC-Nvim/CopilotChat.nvim',
+        requires = {'nvim-lua/plenary.nvim'}
+    }
 
     --- Filesystem tree
     use('preservim/nerdtree')
