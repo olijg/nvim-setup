@@ -1,32 +1,51 @@
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+-- Lazy plugin manager
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
 
-local packer_bootstrap = ensure_packer()
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function()
-    use 'wbthomason/packer.nvim'
+require("lazy").setup({
 
-    use {
-        "williamboman/mason.nvim"
-    }
-    require("mason").setup()
+    -- Main Colorscheme
+    {
+        "tomasr/molokai",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.cmd([[colorscheme molokai]])
+        end
+    },
 
-    use 'simrat39/rust-tools.nvim'
+    -- Dashboard
+	{
+        'echasnovski/mini.starter',
+        version = false,
+        lazy = false,
+        config = function()
+            require('mini.starter').setup()
+        end
+    },
 
-    use 'BurntSushi/ripgrep'
+    -- Language Server Installer
+    "williamboman/mason.nvim",
 
-    use {
+    -- Grep
+    'BurntSushi/ripgrep',
+
+    -- LSP and Autocompletion
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
-        requires = {
+        dependencies = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },             -- Required
             { 'williamboman/mason.nvim' },           -- Optional
@@ -37,57 +56,80 @@ return require('packer').startup(function()
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
             { 'L3MON4D3/LuaSnip' },     -- Required
         }
-    }
+    },
 
-    -- Useful completion sources:
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-nvim-lsp-signature-help'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/vim-vsnip'
+    -- Useful autocompletion sources
+    'hrsh7th/cmp-nvim-lua',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/vim-vsnip',
 
     -- Fuzzy Finder
-    use  { "ibhagwan/fzf-lua",
-        requires = {
-            "nvim-tree/nvim-web-devicons"
-        }
-    }
+    {
+        "ibhagwan/fzf-lua",
+        dependencies = {
+            {
+                "nvim-tree/nvim-web-devicons",
+                lazy = true
+            }
+        },
+    },
 
-    -- Color schemes
-    use { "ellisonleao/gruvbox.nvim" }
-    use { "sainnhe/sonokai" }
-    use { "tomasr/molokai" }
-
-    use {
+    {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+        build = ':TSUpdate',
+        config = function()
+            local configs = require('nvim-treesitter.configs')
+            configs.setup({
+                    ensure_installed = {
+                        "c",
+                        "lua",
+                        "vim",
+                        "vimdoc",
+                        "javascript",
+                        "julia",
+                        "typescript",
+                        "rust",
+                        "query",
+                        "python"
+                    },
+                    sync_install = false,
+                    highlight = { enable = true },
+                    autotag = { enable = true },
+                    indent = { enable = true },
+                })
+        end
+    },
 
-    use('windwp/nvim-ts-autotag')
-    --- Harpoon for fast file search
-    use('theprimeagen/harpoon')
-    --- Undo tree because everyone makes mistakes
-    use('mbbill/undotree')
-    --- Git integration
-    use('tpope/vim-fugitive')
+    'windwp/nvim-ts-autotag',
 
-    --- Vim Abolish
-    --- Replaces words with similar words, easily (use S instead of s during substitution)
-    use('tpope/vim-abolish')
-    --- Surround text objects
-    use('machakann/vim-sandwich')
+    -- Fast file navigation
+    'theprimeagen/harpoon',
 
-    --- AI Copilot
-    use('github/copilot.vim')
-    use{'CopilotC-Nvim/CopilotChat.nvim',
-        requires = {'nvim-lua/plenary.nvim'}
-    }
+    -- Undo Tree Utility
+    'mbbill/undotree',
 
-    --- Filesystem tree
-    use('preservim/nerdtree')
+    -- Git Integration
+    'tpope/vim-fugitive',
 
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-end)
+
+    'tpope/vim-abolish',
+
+    -- Surrounding objects
+    'machakann/vim-sandwich',
+
+    -- Inline Copilot
+    'github/copilot.vim',
+
+    -- Copilot Chat
+    {
+        'CopilotC-Nvim/CopilotChat.nvim',
+        dependencies = {'nvim-lua/plenary.nvim'}
+    },
+
+    -- File Explorer
+    'preservim/nerdtree'
+})
+
