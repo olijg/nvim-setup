@@ -15,5 +15,9 @@ vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<CR>")
 vim.keymap.set("n", "[<leader>", "O<Esc>j")
 vim.keymap.set("n", "]<leader>", "o<Esc>k")
 
---- Work shortcuts
-vim.keymap.set("n", "<leader>si", ":belowright split<CR> :term shellfoundry install <CR><C-\\><C-n>")
+-- Navigate buffers
+vim.keymap.set("n", "[b", ":bp<CR>", { silent = true})
+vim.keymap.set("n", "]b", ":bn<CR>", { silent = true})
+vim.keymap.set("n", "[B", ":bfirst<CR>", { silent = true})
+vim.keymap.set("n", "]B", ":blast<CR>", { silent = true})
+
