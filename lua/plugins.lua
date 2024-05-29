@@ -58,6 +58,10 @@ require("lazy").setup({
         }
     },
 
+    -- Java LSP
+    'mfussenegger/nvim-jdtls',
+
+
     -- Useful autocompletion sources
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-nvim-lsp-signature-help',
