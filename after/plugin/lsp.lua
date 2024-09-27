@@ -9,10 +9,10 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.ensure_installed({
-    'tsserver',
     'eslint',
     'rust_analyzer',
-    'pyright'
+    'jdtls',
+    'basedpyright'
 })
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
@@ -26,11 +26,14 @@ cmp.setup({
             vim.fn["vsnip#anonymous"](args.body)
         end,
     },
-    mapping = {
+
+        mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
         -- Add tab support
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        -- (Removed for now in favour of GitHub Copilot)
+        -- ['<Tab>'] = cmp.mapping.select_next_item(),
+        --['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
         ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -70,6 +73,59 @@ cmp.setup({
     },
 })
 
+local jdtls = require('jdtls')
+local root_markers = {'gradlew', '.git', 'mvnw'}
+local root_dir = require('jdtls.setup').find_root(root_markers)
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local jdtls_config = {
 
+    cmd = {
+        "java",
+
+        "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+        "-Dosgi.bundles.defaultStartLevel=4",
+        "-Declipse.product=org.eclipse.jdt.ls.core.product",
+        "-Dlog.protocol=true",
+        "-Dlog.level=ALL",
+        "-Xmx1g",
+        "--add-modules=ALL-SYSTEM",
+        "--add-opens",
+        "java.base/java.util=ALL-UNNAMED",
+        "--add-opens",
+        "java.base/java.lang=ALL-UNNAMED",
+
+        "-jar",
+        vim.fn.expand(
+          "~/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
+          ),
+
+        "-configuration",
+        vim.fn.expand(
+          "~/.local/share/nvim/mason/packages/jdtls/config_linux"
+          ),
+
+        "-data",
+        vim.fn.expand(
+          "~/.cache/jdtls/workspace/"
+          ) .. project_name,
+      },
+
+    root_dir = root_dir,
+    capabilities=capabilities,
+    settings = {
+        java = {
+        eclipse = {
+          downloadSources = true,
+        },
+        maven = {
+          downloadSources = true,
+          updateSnapshots = true
+          },
+        }
+      }
+}
+
+require('lspconfig').jdtls.setup(jdtls_config)
 
 lsp.setup()
