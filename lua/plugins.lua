@@ -15,125 +15,142 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-    -- Main Colorscheme
-    {
-        "tomasr/molokai",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme molokai]])
-        end
+  -- Main Colorscheme
+  {
+    "tomasr/molokai",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme molokai]])
+    end
+  },
+
+  -- Dashboard
+  {
+    'echasnovski/mini.starter',
+    version = false,
+    lazy = false,
+    config = function()
+      require('mini.starter').setup()
+    end
+  },
+
+  -- Language Server Installer
+  "williamboman/mason.nvim",
+
+  -- Grep
+  'BurntSushi/ripgrep',
+
+  -- LSP and Autocompletion
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    dependencies = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },             -- Required
+      { 'williamboman/mason.nvim' },           -- Optional
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },     -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { 'L3MON4D3/LuaSnip' },     -- Required
+    }
+  },
+
+
+  -- Useful autocompletion sources
+  'hrsh7th/cmp-nvim-lua',
+  'hrsh7th/cmp-nvim-lsp-signature-help',
+  'hrsh7th/cmp-vsnip',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/vim-vsnip',
+
+  -- Fuzzy Finder
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = {
+      {
+        "nvim-tree/nvim-web-devicons",
+        lazy = true
+      }
     },
+  },
 
-    -- Dashboard
-	{
-        'echasnovski/mini.starter',
-        version = false,
-        lazy = false,
-        config = function()
-            require('mini.starter').setup()
-        end
-    },
-
-    -- Language Server Installer
-    "williamboman/mason.nvim",
-
-    -- Grep
-    'BurntSushi/ripgrep',
-
-    -- LSP and Autocompletion
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-            { 'williamboman/mason.nvim' },           -- Optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
-        }
-    },
-
-    -- Java LSP
-    'mfussenegger/nvim-jdtls',
-
-
-    -- Useful autocompletion sources
-    'hrsh7th/cmp-nvim-lua',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
-    'hrsh7th/cmp-vsnip',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/vim-vsnip',
-
-    -- Fuzzy Finder
-    {
-        "ibhagwan/fzf-lua",
-        dependencies = {
-            {
-                "nvim-tree/nvim-web-devicons",
-                lazy = true
-            }
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      local configs = require('nvim-treesitter.configs')
+      configs.setup({
+        ensure_installed = {
+          "c",
+          "markdown",
+          "lua",
+          "kotlin",
+          "http",
+          "vim",
+          "java",
+          "vimdoc",
+          "javascript",
+          "julia",
+          "typescript",
+          "rust",
+          "query",
+          "python"
         },
-    },
+        sync_install = false,
+        highlight = { enable = true },
+        autotag = { enable = true },
+        indent = { enable = true },
+      })
+    end
+  },
 
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
-        config = function()
-            local configs = require('nvim-treesitter.configs')
-            configs.setup({
-                    ensure_installed = {
-                        "c",
-                        "lua",
-                        "vim",
-                        "vimdoc",
-                        "javascript",
-                        "julia",
-                        "typescript",
-                        "rust",
-                        "query",
-                        "python"
-                    },
-                    sync_install = false,
-                    highlight = { enable = true },
-                    autotag = { enable = true },
-                    indent = { enable = true },
-                })
-        end
-    },
+  -- Java LSP
+  {
+    'mfussenegger/nvim-jdtls',
+    dependencies = {
+      -- DAP
+      'mfussenegger/nvim-dap',
+    }
+  },
 
-    'windwp/nvim-ts-autotag',
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    }
+  },
+  "kdheepak/nvim-dap-julia",
+  'mfussenegger/nvim-dap-python',
 
-    -- Fast file navigation
+  -- TypeScript tagging
+  'windwp/nvim-ts-autotag',
+
+  -- Fast file navigation
+  {
     'theprimeagen/harpoon',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
 
-    -- Undo Tree Utility
-    'mbbill/undotree',
+  -- Undo Tree Utility
+  'mbbill/undotree',
 
-    -- Git Integration
-    'tpope/vim-fugitive',
+  -- Git Integration
+  'tpope/vim-fugitive',
 
 
-    'tpope/vim-abolish',
+  'tpope/vim-abolish',
 
-    -- Surrounding objects
-    'machakann/vim-sandwich',
+  -- Surrounding objects
+  'machakann/vim-sandwich',
 
-    -- Inline Copilot
-    'github/copilot.vim',
+  -- File Explorer
+  'preservim/nerdtree',
 
-    -- Copilot Chat
-    {
-        'CopilotC-Nvim/CopilotChat.nvim',
-        dependencies = {'nvim-lua/plenary.nvim'}
-    },
+  { 'mistweaverco/kulala.nvim', opts = {} },
 
-    -- File Explorer
-    'preservim/nerdtree'
 })
-
