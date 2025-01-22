@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 --- Clipboard Copy/Paste
@@ -11,9 +12,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
---- NERDTree
-vim.keymap.set("n", "<leader>n", ":NERDTreeFocus<CR>")
-vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<CR>")
+-- Oil (File Manager)
+vim.keymap.set("n", "<leader>ov", ":Oil<CR>")
+vim.keymap.set("n", "<leader>of", ":Oil --float<CR>")
 
 --- Add lines below or above
 vim.keymap.set("n", "[<leader>", "O<Esc>j")

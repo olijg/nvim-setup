@@ -6,6 +6,11 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "javascript",
+  command = "setlocal shiftwidth=4 tabstop=4"
+})
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false

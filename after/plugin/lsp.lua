@@ -25,6 +25,7 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
+  { completion = { keyword_length = 1 } },
 
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -46,7 +47,7 @@ cmp.setup({
   -- Installed sources:
   sources = {
     { name = 'path' },                                       -- file paths
-    { name = 'nvim_lsp',               keyword_length = 3 }, -- from language server
+    { name = 'nvim_lsp',               keyword_length = 1 }, -- from language server
     { name = 'nvim_lsp_signature_help' },                    -- display function signatures with current parameter emphasized
     { name = 'nvim_lua',               keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
     { name = 'buffer',                 keyword_length = 2 }, -- source current buffer

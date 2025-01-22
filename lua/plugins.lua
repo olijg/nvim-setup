@@ -72,7 +72,7 @@ require("lazy").setup({
     "ibhagwan/fzf-lua",
     dependencies = {
       {
-        "nvim-tree/nvim-web-devicons",
+        "echasnovski/mini.icons",
         lazy = true
       }
     },
@@ -149,7 +149,13 @@ require("lazy").setup({
   'machakann/vim-sandwich',
 
   -- File Explorer
-  'preservim/nerdtree',
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  },
 
   { 'mistweaverco/kulala.nvim', opts = {} },
 
