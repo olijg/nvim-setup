@@ -67,6 +67,16 @@ require("lazy").setup({
   'hrsh7th/cmp-buffer',
   'hrsh7th/vim-vsnip',
 
+  -- AI Coding Companion
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lus/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = true
+  },
+
   -- Fuzzy Finder
   {
     "ibhagwan/fzf-lua",
@@ -91,6 +101,7 @@ require("lazy").setup({
           "kotlin",
           "http",
           "vim",
+          "yaml",
           "java",
           "vimdoc",
           "javascript",
@@ -158,5 +169,10 @@ require("lazy").setup({
   },
 
   { 'mistweaverco/kulala.nvim', opts = {} },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" }
+  },
 
 })

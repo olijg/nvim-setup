@@ -53,6 +53,9 @@ cmp.setup({
     { name = 'buffer',                 keyword_length = 2 }, -- source current buffer
     { name = 'vsnip',                  keyword_length = 2 }, -- nvim-cmp source for vim-vsnip
     { name = 'calc' },                                       -- source for math calculation
+    per_filetype = {
+      codecompanion = { "codecompanion" },
+    }
   },
   window = {
     completion = cmp.config.window.bordered(),
