@@ -67,6 +67,16 @@ require("lazy").setup({
   'hrsh7th/cmp-buffer',
   'hrsh7th/vim-vsnip',
 
+  -- AI Coding Companion
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lus/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = true
+  },
+
   -- Fuzzy Finder
   {
     "ibhagwan/fzf-lua",
@@ -91,6 +101,7 @@ require("lazy").setup({
           "kotlin",
           "http",
           "vim",
+          "yaml",
           "java",
           "vimdoc",
           "javascript",
@@ -159,18 +170,6 @@ require("lazy").setup({
 
   { 'mistweaverco/kulala.nvim', opts = {} },
 
-  -- Obsidian (Notes app)
-  {
-    'epwalsh/obsidian.nvim',
-    version = "*",
-    lazy = true,
-    ft = "markdown",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-  },
-
   -- AI
   {
     "olimorris/codecompanion.nvim",
@@ -180,7 +179,12 @@ require("lazy").setup({
       "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
       "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
     },
-    config = true
+    config = true,
+  },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" }
   },
 
 })
