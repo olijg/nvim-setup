@@ -1,6 +1,10 @@
 local root_markers = { 'gradlew', '.git', 'mvnw' }
 local root_dir = require('jdtls.setup').find_root(root_markers)
 local home_dir = os.getenv('HOME')
+if home_dir == nil then
+    home_dir = os.getenv('USERPROFILE')
+end
+
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
