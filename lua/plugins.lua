@@ -69,11 +69,14 @@ require("lazy").setup({
     config = true
   },
 
+  { 'echasnovski/mini.nvim', version = false },
+
   -- Fuzzy Finder
   {
     "ibhagwan/fzf-lua",
     dependencies = {
       {
+
         "echasnovski/mini.icons",
         lazy = true
       }
