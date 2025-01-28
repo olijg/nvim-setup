@@ -124,7 +124,21 @@ require('mason-lspconfig').setup({
     function(server_name)
       require('lspconfig')[server_name].setup({})
     end,
-
+    lua_ls = function()
+      require('lspconfig').lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { 'vim' } -- Recognize 'vim' as a global
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true), -- Include Neovim runtime files
+              checkThirdParty = false
+            }
+          }
+        }
+      })
+    end,
     jdtls = function()
       require('lspconfig').jdtls.setup(jdtls_config)
     end
