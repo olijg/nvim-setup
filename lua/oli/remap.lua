@@ -50,11 +50,3 @@ vim.keymap.set('n', '<leader>b', function() require('dap').toggle_breakpoint() e
 
 -- Java specific
 vim.keymap.set("v", '<leader>jc', function() vim.cmd("norm 0i //") end)
-
--- REST (Kulala)
-vim.keymap.set('n', '<leader>R', function() require('kulala').run() end)
-vim.keymap.set('n', '<leader>ra', function() require('kulala').run_all() end)
-vim.keymap.set('n', '<leader>ri', function() require('kulala').inspect() end)
-vim.keymap.set('n', '<leader>rr', function() require('kulala').scratchpad() end)
-vim.keymap.set('n', '<leader>rv', function() require('kulala').toggle_view() end)
-vim.keymap.set('n', '<leader>rq', function() require('kulala').close() end)

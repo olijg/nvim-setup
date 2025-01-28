@@ -133,9 +133,6 @@ require("lazy").setup({
   "kdheepak/nvim-dap-julia",
   'mfussenegger/nvim-dap-python',
 
-  -- TypeScript tagging
-  'windwp/nvim-ts-autotag',
-
   -- Fast file navigation
   {
     'theprimeagen/harpoon',
@@ -162,8 +159,6 @@ require("lazy").setup({
     opts = {},
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
   },
-
-  { 'mistweaverco/kulala.nvim', opts = {} },
 
   -- AI
   {
