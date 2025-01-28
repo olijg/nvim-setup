@@ -107,9 +107,11 @@ require("lazy").setup({
           "python"
         },
         sync_install = false,
+        auto_install = true,
         highlight = { enable = true },
         autotag = { enable = true },
         indent = { enable = true },
+        ignore_install = {},
       })
     end
   },
