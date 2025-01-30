@@ -33,15 +33,18 @@ vim.list_extend(
 
 local eclipse_jar_location
 local jdtls_config_location
+local lombok_jar_location
 
 if detected_os == Operating_System.LINUX then
   print("Linux!")
   eclipse_jar_location = "~/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
   jdtls_config_location = "~/.local/share/nvim/mason/packages/jdtls/config_linux"
+  lombok_jar_location =  "/.local/lib/lombok/lombok.jar"
 elseif detected_os == Operating_System.WIN then
   print("Windows!")
   eclipse_jar_location = home_dir .. "\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls\\plugins\\org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
   jdtls_config_location =  home_dir .. "\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls\\config_win"
+  lombok_jar_location =  "\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls\\lombok.jar"
 else
   print("Could not detect OS for eclipse jar location")
 end
@@ -62,7 +65,7 @@ local jdtls_config = {
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
     --todo!: make this more dynamic by using /.m2/repository/org/projectlombok...
-    "-javaagent:" .. home_dir .. "/.local/lib/lombok/lombok.jar",
+    "-javaagent:" .. home_dir .. lombok_jar_location,
     "-jar",
     vim.fn.expand(
       eclipse_jar_location
