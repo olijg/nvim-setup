@@ -1,8 +1,16 @@
-local root_markers = { 'gradlew', '.git', 'mvnw' }
+local root_markers = { 'gradlew', '.git', 'mvnw', 'pom.xml' }
 local root_dir = require('jdtls.setup').find_root(root_markers)
 local home_dir = os.getenv('HOME')
+local Operating_System = {
+  WIN = "Windows",
+  LINUX = "Linux"
+}
+local detected_os
 if home_dir == nil then
     home_dir = os.getenv('USERPROFILE')
+    detected_os = Operating_System.WIN
+else
+  detected_os = Operating_System.LINUX
 end
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
@@ -23,6 +31,21 @@ vim.list_extend(
     vim.fn.glob(home_dir .. ".java/vscode-java-test/server/*.jar"),
     "\n"))
 
+local eclipse_jar_location
+local jdtls_config_location
+
+if detected_os == Operating_System.LINUX then
+  print("Linux!")
+  eclipse_jar_location = "~/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
+  jdtls_config_location = "~/.local/share/nvim/mason/packages/jdtls/config_linux"
+elseif detected_os == Operating_System.WIN then
+  print("Windows!")
+  eclipse_jar_location = home_dir .. "\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls\\plugins\\org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
+  jdtls_config_location =  home_dir .. "\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls\\config_win"
+else
+  print("Could not detect OS for eclipse jar location")
+end
+
 local jdtls_config = {
 
   cmd = {
@@ -42,12 +65,12 @@ local jdtls_config = {
     "-javaagent:" .. home_dir .. "/.local/lib/lombok/lombok.jar",
     "-jar",
     vim.fn.expand(
-      "~/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
+      eclipse_jar_location
     ),
 
     "-configuration",
     vim.fn.expand(
-      "~/.local/share/nvim/mason/packages/jdtls/config_linux"
+      jdtls_config_location
     ),
 
     "-data",
