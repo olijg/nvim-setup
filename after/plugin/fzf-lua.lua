@@ -6,7 +6,7 @@ vim.keymap.set('n', '<leader>ps', "<cmd>lua require('fzf-lua').grep()<CR>", { si
 fzflua.setup({
   winopts = {
     treesitter = {
-      enabled = false
+      enabled = true
     }
   },
   fzf_colors = {

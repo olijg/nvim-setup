@@ -107,6 +107,7 @@ require("lazy").setup({
           "python"
         },
         sync_install = false,
+        -- Set this to false if you don't have tree-sitter installed locally!
         auto_install = true,
         highlight = { enable = true },
         autotag = { enable = true },

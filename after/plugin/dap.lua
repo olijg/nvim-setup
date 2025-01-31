@@ -73,13 +73,19 @@ Dapui.setup(
   }
 )
 
-dap = require('dap')
+local dap = require('dap')
+
+dap.configurations.java = {
+  {
+    type = 'java';
+    request = 'attach';
+    name = "Debug (Attach) - Remote";
+    port = 8080;
+  },
+}
 
 DapPython = require('dap-python')
 DapJulia = require("nvim-dap-julia")
-
--- Load launch.json
-require('dap.ext.vscode').load_launchjs()
 
 DapPython.setup("python3")
 DapJulia.setup()
