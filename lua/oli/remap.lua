@@ -25,12 +25,6 @@ vim.keymap.set("n", "]b", ":bn<CR>", { silent = true })
 vim.keymap.set("n", "[B", ":bfirst<CR>", { silent = true })
 vim.keymap.set("n", "]B", ":blast<CR>", { silent = true })
 
--- Code Companion
-vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<leader>gc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-
 --JSON Format
 vim.keymap.set("n", "<leader>jq", ":%!jq<CR>")
 vim.keymap.set("v", "<leader>jq", ":!jq<CR>")
