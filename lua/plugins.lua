@@ -95,16 +95,20 @@ require("lazy").setup({
           "lua",
           "kotlin",
           "http",
+          "html",
+          "css",
           "vim",
           "yaml",
           "java",
           "vimdoc",
+          "make",
           "javascript",
           "julia",
           "typescript",
           "rust",
           "query",
-          "python"
+          "python",
+          "dockerfile"
         },
         sync_install = false,
         -- Set this to false if you don't have tree-sitter installed locally!
