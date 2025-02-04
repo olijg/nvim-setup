@@ -102,7 +102,13 @@ local jdtls_config = {
 
 jdtls_config['on_attach'] = function(client, bufnr)
   require('jdtls').setup_dap({ hotcodereplace = 'auto' })
-  require('jdtls.dap').setup_dap_main_class_configs()
+end
+local function setup_dap_main_class_configs_delayed()
+  vim.defer_fn(function()
+    print("Setting up main class configs")
+    require('jdtls.dap').setup_dap_main_class_configs()
+  end, 5000)
 end
 
 require('jdtls').start_or_attach(jdtls_config)
+setup_dap_main_class_configs_delayed()
