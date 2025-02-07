@@ -100,6 +100,7 @@ cmp.setup({
     { name = 'buffer',                 keyword_length = 2 }, -- source current buffer
     { name = 'vsnip',                  keyword_length = 2 }, -- nvim-cmp source for vim-vsnip
     { name = 'calc' },                                       -- source for math calculation
+    { name = 'luasnip' },
     { name = 'render-markdown' },
     per_filetype = {
       codecompanion = { "codecompanion" },
@@ -124,4 +125,12 @@ cmp.setup({
   },
 })
 
-
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  }),
+  matching = { disallow_symbol_nonprefix_matching = false }
+})
