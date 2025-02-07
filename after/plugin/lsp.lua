@@ -1,3 +1,4 @@
+-- TODO!: Update according to https://cmp.saghen.dev/installation
 -- Add cmp_nvim_lsp capabilities to lspconfig
 local lspconfig_defaults = require('lspconfig').util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(

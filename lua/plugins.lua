@@ -46,18 +46,26 @@ require("lazy").setup({
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
 
-  -- Autocompletion
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-nvim-lsp',
-  'L3MON4D3/LuaSnip',
+  {
+    'saghen/blink.cmp',
+      version = '*',
+      --@module 'blink.cmp'
+      --@type blink.cmp.config
+      opts = {
+        keymap = { preset = 'default' },
+        appearance = {
+          use_nvim_cmp_as_default = true,
+          nerd_font_variant = 'mono'
+    },
+    sources = {
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+    },
+    opts_extend = { "sources.default" }
+  },
 
   -- Useful autocompletion sources
-  'hrsh7th/cmp-nvim-lua',
-  'hrsh7th/cmp-nvim-lsp-signature-help',
-  'hrsh7th/cmp-vsnip',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/vim-vsnip',
+  'rafamadriz/friendly-snippets',
 
   -- AI Coding Companion
   {
