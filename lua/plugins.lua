@@ -184,4 +184,12 @@ require("lazy").setup({
     ft = { "markdown", "codecompanion" }
   },
 
+-- HTTP API Calls
+  {
+    'mistweaverco/kulala.nvim',
+    opts = {},
+    ft = { "http" },
+  },
 })
+
+
