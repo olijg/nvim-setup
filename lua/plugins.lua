@@ -37,7 +37,7 @@ require("lazy").setup({
       explorer = { enabled = false },
       indent = { enabled = false },
       input = { enabled = false },
-      picker = { enabled = false },
+      picker = { enabled = true },
       notifier = { enabled = false },
       quickfile = { enabled = false },
       scope = { enabled = false },
@@ -84,18 +84,6 @@ require("lazy").setup({
   },
 
   { 'echasnovski/mini.nvim', version = false },
-
-  -- Fuzzy Finder
-  {
-    "ibhagwan/fzf-lua",
-    dependencies = {
-      {
-
-        "echasnovski/mini.icons",
-        lazy = true
-      }
-    },
-  },
 
   {
     'nvim-treesitter/nvim-treesitter',
