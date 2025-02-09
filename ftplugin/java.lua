@@ -27,7 +27,7 @@ local bundles = {
 vim.list_extend(
   bundles,
   vim.split(
-    vim.fn.glob(home_dir .. "/.java/vscode-java-test/server/*.jar", 1),
+    vim.fn.glob(home_dir .. "/.java/vscode-java-test/server/*.jar", true),
     "\n"))
 
 local eclipse_jar_location
