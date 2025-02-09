@@ -56,8 +56,7 @@ require('mason-lspconfig').setup({
       })
     end,
     jdtls = function()
-      -- require('jdtls').start_or_attach(jdtls_config)
-      -- require('lspconfig').jdtls.setup(jdtls_config)
+
     end
   },
   automatic_installation = false
@@ -133,4 +132,22 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   }),
   matching = { disallow_symbol_nonprefix_matching = false }
+})
+
+vim.diagnostic.config({
+  signs = {
+     text = {
+        [vim.diagnostic.severity.ERROR] = '',
+        [vim.diagnostic.severity.WARN] = '',
+        [vim.diagnostic.severity.INFO] = '',
+        [vim.diagnostic.severity.HINT] = '',
+      },
+      numhl = {
+        [vim.diagnostic.severity.WARN] = 'WarningMsg',
+        [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+        [vim.diagnostic.severity.INFO] = 'DiagnosticInfo',
+        [vim.diagnostic.severity.HINT] = 'DiagnosticHint',
+
+      },
+    },
 })
