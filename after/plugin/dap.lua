@@ -1,3 +1,14 @@
+local dap = require('dap')
+
+-- Debug
+vim.keymap.set("n", "<leader>db", function() require('dapui').toggle() end, { silent = true })
+vim.keymap.set('n', '<leader>dk', function() dap.continue() end)
+vim.keymap.set('n', '<leader>dl', function() dap.run_last() end)
+vim.keymap.set('n', '<leader>do', function() dap.step_over() end)
+vim.keymap.set('n', '<leader>di', function() dap.step_into() end)
+vim.keymap.set('n', '<F12>', function() dap.step_out() end)
+vim.keymap.set('n', '<leader>b', function() dap.toggle_breakpoint() end)
+
 Dapui = require('dapui')
 
 Dapui.setup(
@@ -72,8 +83,6 @@ Dapui.setup(
     }
   }
 )
-
-local dap = require('dap')
 
 dap.configurations.java = {
   {

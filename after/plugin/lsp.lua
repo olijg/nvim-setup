@@ -23,6 +23,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+require('java').setup({})
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -55,8 +56,32 @@ require('mason-lspconfig').setup({
         }
       })
     end,
-    jdtls = function()
-
+    jdtls = function ()
+      require('lspconfig').jdtls.setup({
+        settings = {
+          java = {
+            configuration = {
+              runtimes = {
+                {
+                  name = "JavaSE-21",
+                  path = "/usr/lib/jvm/java-21-openjdk-amd64/bin/java",
+                  default = true,
+                }
+              }
+            }
+          }
+        },
+        root_markers = {
+              'settings.gradle',
+              'settings.gradle.kts',
+              'pom.xml',
+              'build.gradle',
+              'mvnw',
+              'gradlew',
+              'build.gradle',
+              'build.gradle.kts'
+            },
+      })
     end
   },
   automatic_installation = false

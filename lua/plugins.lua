@@ -129,13 +129,7 @@ require("lazy").setup({
   },
 
   -- Java LSP
-  {
-    'mfussenegger/nvim-jdtls',
-    dependencies = {
-      -- DAP
-      'mfussenegger/nvim-dap',
-    }
-  },
+  {'nvim-java/nvim-java'},
 
   {
     "rcarriga/nvim-dap-ui",
