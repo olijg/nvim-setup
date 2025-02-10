@@ -50,9 +50,6 @@ require("lazy").setup({
   -- Language Server Installer
   "williamboman/mason.nvim",
 
-  -- Grep
-  'BurntSushi/ripgrep',
-
   -- LSP and Autocompletion
   'neovim/nvim-lspconfig',
   'williamboman/mason.nvim',
