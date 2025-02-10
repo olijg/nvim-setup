@@ -33,14 +33,5 @@ vim.keymap.set("v", "<leader>jq", ":!jq<CR>")
 vim.keymap.set("n", '<leader>mc', function() vim.cmd('!mvn clean; mvn compile; mvn package') end)
 vim.keymap.set("n", '<leader>mt', function() vim.cmd('!mvn test') end)
 
--- Debug
-vim.keymap.set("n", "<leader>db", function() require('dapui').toggle() end, { silent = true })
-vim.keymap.set('n', '<leader>dk', function() require('dap').continue() end)
-vim.keymap.set('n', '<leader>dl', function() require('dap').run_last() end)
-vim.keymap.set('n', '<leader>do', function() require('dap').step_over() end)
-vim.keymap.set('n', '<leader>di', function() require('dap').step_into() end)
-vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
-vim.keymap.set('n', '<leader>b', function() require('dap').toggle_breakpoint() end)
-
 -- Java specific
 vim.keymap.set("v", '<leader>jc', function() vim.cmd("norm 0i //") end)
