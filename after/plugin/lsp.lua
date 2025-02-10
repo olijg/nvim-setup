@@ -56,7 +56,13 @@ require('mason-lspconfig').setup({
         }
       })
     end,
-    jdtls = function ()
+    jdtls = function()
+      local java_path
+      if os.getenv("HOME") then
+        java_path = "/usr/lib/jvm/java-21-openjdk-amd64/bin/java"
+      else
+        java_path = "\\Program Files\\Java\\jdk-23\\bin\\java.exe"
+      end
       require('lspconfig').jdtls.setup({
         settings = {
           java = {
@@ -64,7 +70,7 @@ require('mason-lspconfig').setup({
               runtimes = {
                 {
                   name = "JavaSE-21",
-                  path = "/usr/lib/jvm/java-21-openjdk-amd64/bin/java",
+                  path = java_path,
                   default = true,
                 }
               }
@@ -72,15 +78,15 @@ require('mason-lspconfig').setup({
           }
         },
         root_markers = {
-              'settings.gradle',
-              'settings.gradle.kts',
-              'pom.xml',
-              'build.gradle',
-              'mvnw',
-              'gradlew',
-              'build.gradle',
-              'build.gradle.kts'
-            },
+          'settings.gradle',
+          'settings.gradle.kts',
+          'pom.xml',
+          'build.gradle',
+          'mvnw',
+          'gradlew',
+          'build.gradle',
+          'build.gradle.kts'
+        },
       })
     end
   },
@@ -161,18 +167,18 @@ cmp.setup.cmdline(':', {
 
 vim.diagnostic.config({
   signs = {
-     text = {
-        [vim.diagnostic.severity.ERROR] = '',
-        [vim.diagnostic.severity.WARN] = '',
-        [vim.diagnostic.severity.INFO] = '',
-        [vim.diagnostic.severity.HINT] = '',
-      },
-      numhl = {
-        [vim.diagnostic.severity.WARN] = 'WarningMsg',
-        [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
-        [vim.diagnostic.severity.INFO] = 'DiagnosticInfo',
-        [vim.diagnostic.severity.HINT] = 'DiagnosticHint',
-
-      },
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '',
     },
+    numhl = {
+      [vim.diagnostic.severity.WARN] = 'WarningMsg',
+      [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+      [vim.diagnostic.severity.INFO] = 'DiagnosticInfo',
+      [vim.diagnostic.severity.HINT] = 'DiagnosticHint',
+
+    },
+  },
 })
