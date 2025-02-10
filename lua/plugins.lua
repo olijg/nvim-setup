@@ -15,15 +15,18 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-  -- Main Colorscheme
-  {
-    "tomasr/molokai",
+  -- Main colourscheme
+  { "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme molokai]])
+      vim.cmd([[colorscheme tokyonight-night]])
     end
   },
+  -- Other colourschemes
+  { "catppuccin/nvim", name="catppuccin" },
+  { "tomasr/molokai" },
+  { "rebelot/kanagawa.nvim" },
 
   -- Snacks
   {
