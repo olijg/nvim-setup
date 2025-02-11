@@ -5,11 +5,6 @@ require("codecompanion").setup({
         env = {
           api_key = "GEMINI_API_KEY"
         },
-        schema = {
-          model = {
-            default = "gemini-2.0-flash"
-          }
-        }
       })
     end
   },
