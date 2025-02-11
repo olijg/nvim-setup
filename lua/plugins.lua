@@ -16,7 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
   -- Main colourscheme
-  { "folke/tokyonight.nvim",
+  {
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -24,7 +25,7 @@ require("lazy").setup({
     end
   },
   -- Other colourschemes
-  { "catppuccin/nvim", name="catppuccin" },
+  { "catppuccin/nvim",      name = "catppuccin" },
   { "tomasr/molokai" },
   { "rebelot/kanagawa.nvim" },
 
@@ -36,7 +37,8 @@ require("lazy").setup({
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = false },
-      dashboard = { enabled = true,
+      dashboard = {
+        enabled = true,
         sections = {
           { section = "header" },
           { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
@@ -136,7 +138,7 @@ require("lazy").setup({
   },
 
   -- Java LSP
-  {'nvim-java/nvim-java'},
+  { 'nvim-java/nvim-java' },
 
   {
     "rcarriga/nvim-dap-ui",
@@ -192,12 +194,33 @@ require("lazy").setup({
     ft = { "markdown", "codecompanion" }
   },
 
--- HTTP API Calls
+  -- HTTP API Calls
   {
     'mistweaverco/kulala.nvim',
     opts = {},
     ft = { "http" },
   },
+
+  -- Testing
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-plenary",
+      "nvim-neotest/neotest-vim-test",
+    },
+    lazy = true,
+  },
+  {
+    'andythigpen/nvim-coverage',
+    dependencies = {
+      "nvim-neotest/neotest"
+    },
+    lazy = true
+  },
+
 })
-
-
