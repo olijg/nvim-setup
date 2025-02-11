@@ -1,19 +1,16 @@
 vim.g.mapleader = " "
 vim.keymap.set("i", "jk", "<Esc>")
 
---- Clipboard Copy/Paste
-vim.keymap.set("n", "<leader>pp", "\"+p")
-vim.keymap.set("n", "<leader>y", "\"+y")
-
 --- Move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Replaces the currently selected text
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- Oil (File Manager)
-vim.keymap.set("n", "<leader>ov", ":Oil<CR>")
-vim.keymap.set("n", "<leader>of", ":Oil --float<CR>")
+vim.keymap.set("n", "<leader>ov", ":Oil<CR>", { silent = true })
+vim.keymap.set("n", "<leader>of", ":Oil --float<CR>", { silent = true })
 
 --- Add lines below or above
 vim.keymap.set("n", "[<leader>", "O<Esc>j")
@@ -32,6 +29,3 @@ vim.keymap.set("v", "<leader>jq", ":!jq<CR>")
 -- Maven
 vim.keymap.set("n", '<leader>mc', function() vim.cmd('!mvn clean; mvn compile; mvn package') end)
 vim.keymap.set("n", '<leader>mt', function() vim.cmd('!mvn test') end)
-
--- Java specific
-vim.keymap.set("v", '<leader>jc', function() vim.cmd("norm 0i //") end)
