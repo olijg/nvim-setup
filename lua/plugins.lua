@@ -16,7 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
   -- Main colourscheme
-  { "folke/tokyonight.nvim",
+  {
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -24,9 +25,18 @@ require("lazy").setup({
     end
   },
   -- Other colourschemes
-  { "catppuccin/nvim", name="catppuccin" },
-  { "tomasr/molokai" },
-  { "rebelot/kanagawa.nvim" },
+  { "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
+  },
+  {
+    "tomasr/molokai",
+    lazy = true,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = true,
+  },
 
   -- Snacks
   {
@@ -36,7 +46,8 @@ require("lazy").setup({
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = false },
-      dashboard = { enabled = true,
+      dashboard = {
+        enabled = true,
         sections = {
           { section = "header" },
           { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
@@ -136,7 +147,7 @@ require("lazy").setup({
   },
 
   -- Java LSP
-  {'nvim-java/nvim-java'},
+  { 'nvim-java/nvim-java' },
 
   {
     "rcarriga/nvim-dap-ui",
@@ -192,12 +203,13 @@ require("lazy").setup({
     ft = { "markdown", "codecompanion" }
   },
 
--- HTTP API Calls
+  -- HTTP API Calls
   {
     'mistweaverco/kulala.nvim',
     opts = {},
     ft = { "http" },
   },
+
+  -- Code coverage
+  'andythigpen/nvim-coverage',
 })
-
-
