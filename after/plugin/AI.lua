@@ -7,7 +7,7 @@ require("codecompanion").setup({
         },
         schema = {
           model = {
-            default = "gemini-2.0-flash-exp"
+            default = "gemini-2.0-flash"
           }
         }
       })
