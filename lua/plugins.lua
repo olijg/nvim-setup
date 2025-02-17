@@ -96,18 +96,6 @@ require("lazy").setup({
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-cmdline',
 
-  -- AI Coding Companion
-  {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lus/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = true
-  },
-
-  { 'echasnovski/mini.nvim', version = false },
-
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -226,5 +214,27 @@ require("lazy").setup({
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
       }
+  },
+  {
+    "jackplus-xyz/player-one.nvim",
+    ---@type PlayerOne.Config
+    opts = {
+      is_enabled=true,
+      min_interval = 0.05,
+      theme = "chiptune",
+      debug = false,
+      binary = {
+        auto_update = true,
+        cache_timeout = 3600,
+        download_timeout = 60,
+        verify_checksum = true,
+        use_development = true,
+        github_api_token = nil,
+        proxy = {
+          url = nil,
+          from_env = true,
+        },
+      }
+    }
   }
 })
