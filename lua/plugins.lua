@@ -60,7 +60,7 @@ require("lazy").setup({
       indent = { enabled = true },
       input = { enabled = false },
       picker = { enabled = true },
-      notifier = { enabled = false },
+      notifier = { enabled = true },
       quickfile = { enabled = false },
       scope = { enabled = false },
       scroll = { enabled = false },
