@@ -57,7 +57,7 @@ require("lazy").setup({
         }
       },
       explorer = { enabled = false },
-      indent = { enabled = false },
+      indent = { enabled = true },
       input = { enabled = false },
       picker = { enabled = true },
       notifier = { enabled = false },
@@ -66,6 +66,7 @@ require("lazy").setup({
       scroll = { enabled = false },
       statuscolumn = { enabled = false },
       words = { enabled = false },
+      image = { enabled = false }
     },
   },
 
