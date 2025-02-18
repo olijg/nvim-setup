@@ -118,6 +118,7 @@ require("lazy").setup({
         ensure_installed = {
           "c",
           "markdown",
+          "markdown_inline",
           "lua",
           "kotlin",
           "http",
