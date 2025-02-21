@@ -18,7 +18,7 @@ require("codecompanion").setup({
   },
 })
 -- Code Companion
---
+
 vim.api.nvim_set_keymap("n", "<C-g>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-g>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
