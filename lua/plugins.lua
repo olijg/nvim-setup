@@ -15,6 +15,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
+  {
+    'olijg/bsky-nvim',
+    config = function()
+      require("bsky-nvim").setup({
+        username = "ogws.me",
+      })
+    end,
+  },
   -- Main colourscheme
   {
     "folke/tokyonight.nvim",
