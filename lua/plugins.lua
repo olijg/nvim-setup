@@ -15,6 +15,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
+  {
+    'bsky-nvim',
+    dir = "~/Documents/nvim/bsky-nvim",
+    config = function()
+      require("bsky-nvim").setup({})
+    end,
+  },
   -- Main colourscheme
   {
     "folke/tokyonight.nvim",
