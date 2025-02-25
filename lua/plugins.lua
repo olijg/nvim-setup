@@ -179,7 +179,15 @@ require("lazy").setup({
   'mbbill/undotree',
 
   -- Git Integration
-  'tpope/vim-fugitive',
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      --- A picker if you don't have one installed
+    },
+    config = true
+  },
 
 
   'tpope/vim-abolish',
