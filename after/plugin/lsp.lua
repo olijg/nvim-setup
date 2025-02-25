@@ -41,6 +41,9 @@ require('mason-lspconfig').setup({
     function(server_name)
       require('lspconfig')[server_name].setup({})
     end,
+    basedpyright = function(basedpyright)
+      require('lspconfig').basedpyright.setup({})
+    end,
     lua_ls = function()
       require('lspconfig').lua_ls.setup({
         settings = {
