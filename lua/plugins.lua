@@ -244,5 +244,37 @@ require("lazy").setup({
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
       }
+  },
+
+  --- Projects & Sessions
+  {
+    "Rics-Dev/project-explorer.nvim",
+    opts = {
+      --- TODO!:
+      --- Figure out how to move these to a sensitive
+      --- file that isn't uploaded to Github
+      --- TODO!: Configure this separately for Windows instances
+      paths = {
+        "~/Documents/personal/",
+        "/mnt/c/Users/olive/Documents/Work/VMO2/"
+      },
+      -- custom find command set by the user. Default should always work on unix unless user has heavily modified tools and/or PATH
+      -- for Windows Users: installing `fd` is recommended with the equivalent `fd` command
+      -- "fd . %s -td --min-depth %d --max-depth %d"
+      command_pattern = "find %s -mindepth %d -maxdepth %d -type d -not -name '.git'",
+      newProjectPath = "~/Documents/personal/", --custom path for new projects
+      -- oil.nvim:
+      file_explorer = function(dir)
+        require("oil").open(dir)
+      end,
+    },
+    config = function(_, opts)
+      require("project_explorer").setup(opts)
+    end,
+    keys = {
+      { "<leader>fp", "<cmd>ProjectExplorer<cr>", desc = "Project Explorer" },
+    },
+    lazy = false,
   }
+
 })
