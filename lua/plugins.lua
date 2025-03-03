@@ -23,6 +23,7 @@ require("lazy").setup({
       })
     end,
   },
+
   -- Main colourscheme
   {
     "folke/tokyonight.nvim",
@@ -45,41 +46,6 @@ require("lazy").setup({
     "rebelot/kanagawa.nvim",
     lazy = true,
   },
-
-  -- Snacks
-  {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    ---@type snacks.Config
-    opts = {
-      bigfile = { enabled = false },
-      dashboard = {
-        enabled = true,
-        sections = {
-          { section = "header" },
-          { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-          { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-          { section = "startup" },
-        }
-      },
-      explorer = { enabled = false },
-      indent = { enabled = true },
-      input = { enabled = false },
-      picker = { enabled = true },
-      notifier = { enabled = true },
-      quickfile = { enabled = false },
-      scope = { enabled = false },
-      scroll = { enabled = false },
-      statuscolumn = { enabled = false },
-      words = { enabled = false },
-      image = { enabled = false }
-    },
-  },
-
-  -- Language Server Installer
-  "williamboman/mason.nvim",
 
   -- LSP and Autocompletion
   'neovim/nvim-lspconfig',
@@ -111,6 +77,7 @@ require("lazy").setup({
     dependencies = {
       "nvim-lus/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
     },
     config = true
   },
@@ -131,6 +98,7 @@ require("lazy").setup({
           "kotlin",
           "http",
           "html",
+          "regex",
           "css",
           "vim",
           "yaml",
@@ -169,6 +137,38 @@ require("lazy").setup({
   "kdheepak/nvim-dap-julia",
   'mfussenegger/nvim-dap-python',
 
+  -- Snacks
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      bigfile = { enabled = false },
+      dashboard = {
+        enabled = true,
+        sections = {
+          { section = "header" },
+          { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+          { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+          { section = "startup" },
+        }
+      },
+      explorer = { enabled = false },
+      indent = { enabled = true },
+      input = { enabled = false },
+      picker = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = false },
+      scope = { enabled = false },
+      scroll = { enabled = false },
+      statuscolumn = { enabled = false },
+      words = { enabled = false },
+      image = { enabled = false }
+    },
+  },
+
   -- Fast file navigation
   {
     'theprimeagen/harpoon',
@@ -204,21 +204,23 @@ require("lazy").setup({
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
   },
 
-  -- AI
-  {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
-      "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-    },
-    config = true,
-  },
-
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown", "codecompanion" }
+  },
+
+  {
+    "obsidian-nvim/obsidian.nvim",
+    version = "*",  -- recommended, use latest release instead of latest commit
+    lazy = true,
+    event = {
+      "BufReadPre /mnt/c/Users/olive/Documents/Notes/*.md",
+      "BufNewFile /mnt/c/Users/olive/Documents/Notes/*.md",
+    },
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+    }
   },
 
   -- HTTP API Calls

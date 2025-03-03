@@ -9,8 +9,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- Oil (File Manager)
-vim.keymap.set("n", "<leader>ov", ":Oil<CR>", { silent = true })
-vim.keymap.set("n", "<leader>of", ":Oil --float<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ev", ":Oil<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ef", ":Oil --float<CR>", { silent = true })
 
 --- Add lines below or above
 vim.keymap.set("n", "[<leader>", "O<Esc>j")
@@ -29,3 +29,8 @@ vim.keymap.set("v", "<leader>jq", ":!jq<CR>")
 -- Maven
 vim.keymap.set("n", '<leader>mc', function() vim.cmd('!mvn clean; mvn compile; mvn package') end)
 vim.keymap.set("n", '<leader>mt', function() vim.cmd('!mvn test') end)
+
+-- Obsidian
+vim.keymap.set('n',  "<leader>os", ":ObsidianSearch<cr>", { silent = true })
+vim.keymap.set('n',  "<leader>of", ":ObsidianQuickSwitch<cr>", { silent = true })
+vim.keymap.set('n',  "<leader>ot", ":ObsidianToday<cr>")
