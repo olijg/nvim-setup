@@ -214,8 +214,8 @@ require("lazy").setup({
     version = "*",  -- recommended, use latest release instead of latest commit
     lazy = true,
     event = {
-      "BufReadPre /mnt/c/Users/olive/Documents/Notes/*.md",
-      "BufNewFile /mnt/c/Users/olive/Documents/Notes/*.md",
+      "BufReadPre " .. NotePath,
+      "BufNewFile " .. NotePath,
     },
     dependencies = {
       -- Required.
