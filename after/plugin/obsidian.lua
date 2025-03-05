@@ -1,9 +1,3 @@
-if os.getenv("HOME") then
-  NotePath = "/mnt/c/Users/olive/Documents/Notes/"
-else
-  NotePath = "\\Users\\olive\\Documents\\Notes\\"
-end
-
 require("obsidian").setup({
   workspaces = {
     {
