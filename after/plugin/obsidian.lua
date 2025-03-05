@@ -35,6 +35,6 @@ require("obsidian").setup({
   },
   picker = {
     name = "snacks.pick",
-  }
-
+  },
+  disable_frontmatter = true,
 })
