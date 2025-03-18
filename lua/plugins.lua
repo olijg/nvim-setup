@@ -146,7 +146,7 @@ require("lazy").setup({
     opts = {
       bigfile = { enabled = false },
       dashboard = {
-        enabled = true,
+        enabled = false,
         sections = {
           { section = "header" },
           { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
@@ -209,20 +209,6 @@ require("lazy").setup({
     ft = { "markdown", "codecompanion" }
   },
 
-  {
-    "obsidian-nvim/obsidian.nvim",
-    version = "*",  -- recommended, use latest release instead of latest commit
-    lazy = true,
-    event = {
-      "BufReadPre " .. NotePath,
-      "BufNewFile " .. NotePath,
-    },
-    dependencies = {
-      -- Required.
-      "nvim-lua/plenary.nvim",
-    }
-  },
-
   -- HTTP API Calls
   {
     'mistweaverco/kulala.nvim',
@@ -232,19 +218,4 @@ require("lazy").setup({
 
   -- Code coverage
   'andythigpen/nvim-coverage',
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      -- add any options here
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-      }
-  }
 })
