@@ -15,6 +15,12 @@ require("obsidian").setup({
     nvim_cmp = true,
     min_chars = 2,
   },
+  ---@param spec { id: string, dir: obsidian.Path, title: string|? }
+  ---@return string|obsidian.Path The full path to the new note
+  note_path_func = function(spec)
+    local path = spec.dir / spec.title
+    return path:with_suffix(".md")
+  end,
   ui = {
     enable = true,
   },
