@@ -53,31 +53,59 @@ require("lazy").setup({
   'williamboman/mason-lspconfig.nvim',
 
   -- Autocompletion
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-nvim-lsp',
+  {
+    'saghen/blink.cmp',
+    dependencies = {
+      'rafamadriz/friendly-snippets'
+    },
+    version = '1.*',
+    --@module 'blink.cmp'
+    --@type blink.cmp.Config
+    opts = {
+      keymap = { preset = 'default' },
+      appearance = {
+
+        nerd_font_variant = 'mono'
+      },
+      completion = {
+        documentation = { auto_show = false } 
+      },
+      sources = {
+        default = {
+          'lsp',
+          'path',
+          'snippets',
+          'buffer'
+        },
+        providers = {
+          cmdline = {
+            enabled = function ()
+              --- Prevent hang on shell input
+              return vim.fn.getcmdtype() ~= ':' or not vim.fn.getcmdline():match("^[%%0-9,'<>%-]*!")
+            end
+          }
+        }
+      },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+    },
+    opts_extend = { "sources.default" }
+  },
+
+
   {
     'L3MON4D3/LuaSnip',
     version = "v2.*",
     dependencies = {
-      'saadparwaiz1/cmp_luasnip',
       'rafamadriz/friendly-snippets'
     },
   },
-
-  -- Useful autocompletion sources
-  'hrsh7th/cmp-nvim-lua',
-  'hrsh7th/cmp-nvim-lsp-signature-help',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-cmdline',
 
   -- AI Coding Companion
   {
     "olimorris/codecompanion.nvim",
     dependencies = {
-      "nvim-lus/plenary.nvim",
+      "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
     },
     config = true
   },

@@ -12,7 +12,7 @@ require("obsidian").setup({
     template = "Daily Note Template Nvim.md"
   },
   completion = {
-    nvim_cmp = true,
+    blink = true,
     min_chars = 2,
   },
   ---@param spec { id: string, dir: obsidian.Path, title: string|? }
@@ -22,7 +22,7 @@ require("obsidian").setup({
     return path:with_suffix(".md")
   end,
   ui = {
-    enable = true,
+    enable = false,
   },
   mappings = {
     ["<cr>"] = {
