@@ -17,6 +17,7 @@ require("lazy").setup({
 
   {
     'olijg/bsky-nvim',
+    lazy = true,
     config = function()
       require("bsky-nvim").setup({
         username = "ogws.me",
@@ -55,6 +56,7 @@ require("lazy").setup({
   -- Autocompletion
   {
     'saghen/blink.cmp',
+    lazy = true,
     dependencies = {
       'rafamadriz/friendly-snippets'
     },
@@ -68,8 +70,9 @@ require("lazy").setup({
         nerd_font_variant = 'mono'
       },
       completion = {
-        documentation = { auto_show = false } 
+        documentation = { auto_show = false }
       },
+      snippets = { preset = 'luasnip' },
       sources = {
         default = {
           'lsp',
@@ -103,6 +106,7 @@ require("lazy").setup({
   -- AI Coding Companion
   {
     "olimorris/codecompanion.nvim",
+    lazy=true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -153,17 +157,27 @@ require("lazy").setup({
   },
 
   -- Java LSP
-  { 'nvim-java/nvim-java' },
+  { 
+    'nvim-java/nvim-java',
+    lazy=true
+  },
 
   {
     "rcarriga/nvim-dap-ui",
+    lazy=true,
     dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
     }
   },
-  "kdheepak/nvim-dap-julia",
-  'mfussenegger/nvim-dap-python',
+  {
+    "kdheepak/nvim-dap-julia",
+    lazy=true,
+  },
+  {
+    'mfussenegger/nvim-dap-python',
+    lazy=true,
+  },
 
   -- Snacks
   {
@@ -209,6 +223,7 @@ require("lazy").setup({
   -- Git Integration
   {
     "NeogitOrg/neogit",
+    lazy=true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "sindrets/diffview.nvim",
