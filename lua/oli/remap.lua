@@ -12,10 +12,6 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>ev", ":Oil<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ef", ":Oil --float<CR>", { silent = true })
 
---- Add lines below or above
-vim.keymap.set("n", "[<leader>", "O<Esc>j")
-vim.keymap.set("n", "]<leader>", "o<Esc>k")
-
 -- Navigate buffers
 vim.keymap.set("n", "[b", ":bp<CR>", { silent = true })
 vim.keymap.set("n", "]b", ":bn<CR>", { silent = true })
