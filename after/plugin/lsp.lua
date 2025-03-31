@@ -45,7 +45,7 @@ require('mason-lspconfig').setup({
               globals = { 'vim' } -- Recognize 'vim' as a global
             },
             workspace = {
-              library = vim.api.nvim_get_runtime_file("", true), -- Include Neovim runtime files
+              library = { vim.env.VIMRUNTIME },
               checkThirdParty = false
             }
           }
