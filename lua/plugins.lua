@@ -114,8 +114,6 @@ require("lazy").setup({
     config = true
   },
 
-  { 'echasnovski/mini.nvim', version = false },
-
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
