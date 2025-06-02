@@ -273,12 +273,11 @@ require("lazy").setup({
 
   -- Code coverage
   'andythigpen/nvim-coverage',
+
+  -- Pretty command line and messages
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {
-      -- add any options here
-    },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
