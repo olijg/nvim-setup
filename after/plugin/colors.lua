@@ -1,6 +1,6 @@
 function ColorMyPencils(color)
   vim.opt.termguicolors = true
-  color = color or "tokyonight-night"
+  color = color or "molokai"
   vim.cmd('colorscheme ' .. color)
 end
 

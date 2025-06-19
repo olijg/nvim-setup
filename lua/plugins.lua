@@ -27,20 +27,23 @@ require("lazy").setup({
 
   -- Main colourscheme
   {
-    "folke/tokyonight.nvim",
+    "tomasr/molokai",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme tokyonight-night]])
+      vim.cmd(
+        [[ colorscheme molokai ]]
+      )
     end
   },
   -- Other colourschemes
-  { "catppuccin/nvim",
-    name = "catppuccin",
+  {
+    "folke/tokyonight.nvim",
     lazy = true,
   },
   {
-    "tomasr/molokai",
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = true,
   },
   {
