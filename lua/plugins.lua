@@ -73,8 +73,8 @@ require("lazy").setup({
         dockerls = {},
         ts_ls = {},
         rust_analyzer = {},
-        julials = {}
-        -- kotlin_lsp = {}
+        julials = {},
+        kotlin_lsp = {}
       }
     },
     config = function(_, opts)
@@ -84,14 +84,6 @@ require("lazy").setup({
         lspconfig[server].setup(config)
       end
     end
-  },
-  {
-    'mason-org/mason-lspconfig.nvim',
-    opts = {},
-    dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
-      "neovim/nvim-lspconfig",
-    },
   },
 
   -- Autocompletion
