@@ -1,3 +1,15 @@
+vim.lsp.enable({
+  'lua_ls',
+  'kotlin_lsp',
+  'julials',
+  'rust_analyzer',
+  'ts_ls',
+  'dockerls',
+  'html',
+  'basedpyright',
+  'jdtls'
+})
+
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
