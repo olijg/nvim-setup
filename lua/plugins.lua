@@ -269,7 +269,14 @@ require("lazy").setup({
   'tpope/vim-abolish',
 
   -- Surrounding objects
-  'machakann/vim-sandwich',
+  {
+    "kylechui/nvim-surround",
+    version = "^3.0.0",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end
+  },
 
   -- File Explorer
   {
