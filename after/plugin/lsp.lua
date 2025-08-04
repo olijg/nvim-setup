@@ -7,7 +7,10 @@ vim.lsp.enable({
   'dockerls',
   'html',
   'basedpyright',
-  'jdtls'
+  'jdtls',
+  'tailwindcss',
+  'djlsp',
+  'cssls'
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
