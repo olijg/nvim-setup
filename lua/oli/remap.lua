@@ -27,6 +27,7 @@ vim.keymap.set("n", '<leader>mc', function() vim.cmd('!mvn clean; mvn compile; m
 vim.keymap.set("n", '<leader>mt', function() vim.cmd('!mvn test') end)
 
 -- Obsidian
-vim.keymap.set('n',  "<leader>os", ":ObsidianSearch<cr>", { silent = true })
-vim.keymap.set('n',  "<leader>of", ":ObsidianQuickSwitch<cr>", { silent = true })
-vim.keymap.set('n',  "<leader>ot", ":ObsidianToday<cr>G")
+vim.keymap.set('n',  "<leader>os", ":Obsidian search<cr>", { silent = true })
+vim.keymap.set('n',  "<leader>of", ":Obsidian quick_switch<cr>", { silent = true })
+vim.keymap.set('n',  "<leader>ot", ":Obsidian today<cr>G")
+

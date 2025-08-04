@@ -24,14 +24,6 @@ require("obsidian").setup({
   ui = {
     enable = false,
   },
-  mappings = {
-    ["<cr>"] = {
-      action = function()
-        return require("obsidian").util.smart_action()
-      end,
-      opts = { buffer = true, expr = true },
-    },
-  },
   templates = {
     folder = "99-templates",
     date_format = "%A %d %b %Y",
@@ -43,4 +35,8 @@ require("obsidian").setup({
     name = "snacks.pick",
   },
   disable_frontmatter = true,
+  legacy_commands = false,
+  footer = {
+    enabled = false
+  }
 })
