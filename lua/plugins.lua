@@ -249,7 +249,7 @@ require("lazy").setup({
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {},
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
   },
 
   {
