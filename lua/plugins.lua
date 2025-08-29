@@ -132,6 +132,7 @@ require("lazy").setup({
           "lua",
           "kotlin",
           "http",
+          "go",
           "html",
           "regex",
           "css",

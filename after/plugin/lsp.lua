@@ -10,7 +10,11 @@ vim.lsp.enable({
   'jdtls',
   'tailwindcss',
   'djlsp',
-  'cssls'
+  'cssls',
+  'gopls',
+  'sqlls',
+  'bashls',
+  'obsidian-ls'
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
