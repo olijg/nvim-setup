@@ -58,6 +58,8 @@ require("lazy").setup({
     dependencies = { 'saghen/blink.cmp' },
   },
 
+  "neovim/nvim-lspconfig",
+
   -- Autocompletion
   {
     'saghen/blink.cmp',
