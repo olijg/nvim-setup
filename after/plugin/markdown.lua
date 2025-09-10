@@ -3,5 +3,6 @@ require('render-markdown').setup({
     enabled = true,
     style = 'language',
     position = 'right'
-  }
+  },
+  latex = { enabled = false }
 })
