@@ -252,6 +252,7 @@ require("lazy").setup({
     ---@type oil.SetupOpts
     opts = {},
     dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+    lazy = false,
   },
 
   {
