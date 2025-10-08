@@ -13,8 +13,7 @@ vim.lsp.enable({
   'cssls',
   'gopls',
   'sqlls',
-  'bashls',
-  'obsidian-ls'
+  'bashls'
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
