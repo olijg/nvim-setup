@@ -110,17 +110,6 @@ require("lazy").setup({
     },
   },
 
-  -- AI Coding Companion
-  {
-    "olimorris/codecompanion.nvim",
-    lazy=true,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = true
-  },
-
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -259,7 +248,7 @@ require("lazy").setup({
 
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "codecompanion" }
+    ft = { "markdown" }
   },
 
   {
