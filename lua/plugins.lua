@@ -255,6 +255,8 @@ require("lazy").setup({
     lazy = false,
   },
 
+  { 'nvim-mini/mini.icons', version = '*' },
+
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown", "codecompanion" }
