@@ -34,7 +34,9 @@ require("obsidian").setup({
   picker = {
     name = "snacks.pick",
   },
-  disable_frontmatter = true,
+  frontmatter = {
+    enabled = false
+  },
   legacy_commands = false,
   footer = {
     enabled = false
