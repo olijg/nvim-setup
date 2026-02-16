@@ -15,16 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-  {
-    'olijg/bsky-nvim',
-    lazy = true,
-    config = function()
-      require("bsky-nvim").setup({
-        username = "ogws.me",
-      })
-    end,
-  },
-
   -- Main colourscheme
   {
     "tomasr/molokai",
