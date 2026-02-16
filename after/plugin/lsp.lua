@@ -7,7 +7,6 @@ vim.lsp.enable({
   'dockerls',
   'html',
   'basedpyright',
-  'jdtls',
   'tailwindcss',
   'djlsp',
   'cssls',
@@ -15,6 +14,8 @@ vim.lsp.enable({
   'sqlls',
   'bashls'
 })
+
+-- See nvim-java for Java
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',

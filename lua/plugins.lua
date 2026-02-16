@@ -43,6 +43,7 @@ require("lazy").setup({
 
   -- LSP and Autocompletion
   { "mason-org/mason.nvim", opts = {} },
+
   {
     "neovim/nvim-lspconfig",
     dependencies = { 'saghen/blink.cmp' },
@@ -158,6 +159,15 @@ require("lazy").setup({
       words = { enabled = false },
       image = { enabled = false }
     },
+  },
+
+  -- Java
+  {
+    'nvim-java/nvim-java',
+    config = function()
+      require('java').setup()
+      vim.lsp.enable('jdtls')
+    end,
   },
 
   -- Fast file navigation
