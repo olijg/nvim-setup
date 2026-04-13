@@ -74,42 +74,13 @@ require("lazy").setup({
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    config = function()
-      local configs = require('nvim-treesitter.configs')
-      configs.setup({
-        ensure_installed = {
-          "c",
-          "markdown",
-          "markdown_inline",
-          "lua",
-          "kotlin",
-          "http",
-          "go",
-          "html",
-          "regex",
-          "css",
-          "vim",
-          "yaml",
-          "java",
-          "vimdoc",
-          "make",
-          "javascript",
-          "julia",
-          "typescript",
-          "rust",
-          "query",
-          "python",
-          "dockerfile"
-        },
-        sync_install = false,
-        -- Set this to false if you don't have tree-sitter installed locally!
-        auto_install = true,
-        highlight = { enable = true },
-        autotag = { enable = true },
-        indent = { enable = true },
-        ignore_install = {},
-      })
-    end
+    branch = 'main',
+    sync_install = false,
+    -- Set this to false if you don't have tree-sitter installed locally!
+    auto_install = true,
+    ignore_install = {},
+    highlight = { enable = true },
+    indent = { enable = true },
   },
 
   {
