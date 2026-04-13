@@ -1,4 +1,4 @@
--- Change this path to your respective java home p5th
+-- Change this path to your respective java home path
 vim.uv.os_setenv("JAVA_HOME", "/usr/lib/jvm/java-25-openjdk-arm64")
 
 vim.keymap.set("n", "<leader>jt", function()
