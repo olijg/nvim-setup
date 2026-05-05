@@ -2,7 +2,7 @@
 
 Tested and works on WSL2 Ubuntu and Windows Powershell (+ Neovide)
 
-Requires nvim v0.10+
+Requires nvim v0.12+
 
 ## Dependencies
 
