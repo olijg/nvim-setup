@@ -12,3 +12,8 @@ vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.api.nvim_set_option_value('updatetime', 300, { scope = 'global' })
 
 vim.opt.signcolumn = "auto"
+
+vim.g.loaded_node_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
