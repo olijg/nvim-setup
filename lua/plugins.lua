@@ -17,16 +17,16 @@ require("lazy").setup({
 
   -- Main colourscheme
   {
-    "tomasr/molokai",
+    "sainnhe/gruvbox-material",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd(
-        [[ colorscheme molokai ]]
-      )
-    end
   },
+
   -- Other colourschemes
+  {
+    "tomasr/molokai",
+    lazy = true,
+  },
   {
     "folke/tokyonight.nvim",
     lazy = true,
@@ -74,13 +74,7 @@ require("lazy").setup({
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    branch = 'main',
-    sync_install = false,
-    -- Set this to false if you don't have tree-sitter installed locally!
-    auto_install = true,
-    ignore_install = {},
-    highlight = { enable = true },
-    indent = { enable = true },
+    lazy = false,
   },
 
   {
