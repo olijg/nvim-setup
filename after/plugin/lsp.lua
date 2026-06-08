@@ -1,21 +1,3 @@
-vim.lsp.enable({
-  'lua_ls',
-  'kotlin_lsp',
-  'julials',
-  'rust_analyzer',
-  'ts_ls',
-  'dockerls',
-  'html',
-  'basedpyright',
-  'tailwindcss',
-  'djlsp',
-  'cssls',
-  'gopls',
-  'sqlls',
-  'bashls'
-})
-
--- See nvim-java for Java
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
